@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/shouye_bar_top"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/shouye_bg_input"
+            android:drawableRight="@drawable/shouye_ico_search"
+            android:hint="请输入关键词" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:background="@null"
+            android:drawableRight="@drawable/shouye_arrow_down"
+            android:text="分类" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="编辑推荐" />
+
+                <Button
+                    android:id="@+id/bt_editor_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:text="更多" />
+
+                <GridView
+                    android:id="@+id/lv_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_below="@+id/bt_editor_more"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="4">
+
+                </GridView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="热销图书" />
+
+                <Button
+                    android:id="@+id/bt_hot_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:text="更多" />
+
+                <GridView
+                    android:id="@+id/lv_hot"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_below="@+id/bt_hot_more"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="4">
+
+                </GridView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="最新上架" />
+
+                <Button
+                    android:id="@+id/bt_new_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:text="更多" />
+
+                <GridView
+                    android:id="@+id/lv__new"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_below="@+id/bt_new_more"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="4"></GridView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

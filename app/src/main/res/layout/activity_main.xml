@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/shouye_bar_bottom"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_store"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:drawableTop="@drawable/tab_selector_store"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="书城"
+            android:textColor="@drawable/tab_selector_store_text" />
+
+        <RadioButton
+            android:id="@+id/rb_car"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_selector_car"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="购物车"
+            android:textColor="@drawable/tab_selector_store_text" />
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_selector_mine"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="我的"
+            android:textColor="@drawable/tab_selector_store_text" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rg_tab"></android.support.v4.view.ViewPager>
+
+</RelativeLayout>
