@@ -11,15 +11,27 @@
         android:layout_height="60dp"
         android:background="@drawable/shouye_bar_top"
         android:orientation="horizontal">
-
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:background="@drawable/shouye_bg_input"
-            android:drawableRight="@drawable/shouye_ico_search"
-            android:hint="请输入关键词" />
+            android:layout_weight="1"
+            >
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/shouye_ico_search"
+                android:hint="请输入关键词" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/shouye_ico_search"/>
+        </RelativeLayout>
 
         <Button
             android:layout_width="match_parent"
@@ -46,6 +58,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/bt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
@@ -60,7 +73,7 @@
                     android:text="更多" />
 
                 <GridView
-                    android:id="@+id/lv_recommend"
+                    android:id="@+id/gv_recommend"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_below="@+id/bt_editor_more"
@@ -90,7 +103,7 @@
                     android:text="更多" />
 
                 <GridView
-                    android:id="@+id/lv_hot"
+                    android:id="@+id/gv_hot"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_below="@+id/bt_hot_more"
@@ -120,7 +133,7 @@
                     android:text="更多" />
 
                 <GridView
-                    android:id="@+id/lv__new"
+                    android:id="@+id/gv_new"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_below="@+id/bt_new_more"
