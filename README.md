@@ -41,7 +41,7 @@ RadioGroup+RadioButton+selector
 执行MVP流程：
 
 View层：
-  IStoreView{
+ IStoreView{
     void showRecommendBookList(List<Book> book);
     void showHotBookList(List<Book> book);
     void showNewBookList(List<Book> book);
@@ -51,18 +51,18 @@ View层：
 
 
 Presenter层：
-  IStorePresenter {
+    IStorePresenter {
      void loadRecommendBooks();
      void loadHotBooks();
      void loadNewBooks();
   }  
-  StorePresenterImpl implements IStorePresenter{
+    StorePresenterImpl implements IStorePresenter{
      ....
   }
 
 
 Model层：
-  IStoreModel{
+     IStoreModel{
      void loadRecommendBooks(Callback back);
      void loadHotBooks(Callback back);
      void loadNewBooks(Callback back);
