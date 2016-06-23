@@ -46,7 +46,8 @@
     <ScrollView
         android:id="@+id/sv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,9 +79,7 @@
                     android:layout_height="140dp"
                     android:layout_below="@+id/bt_editor_more"
                     android:listSelector="@android:color/transparent"
-                    android:numColumns="4">
-
-                </GridView>
+                    android:numColumns="4"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -138,7 +137,7 @@
                     android:layout_height="140dp"
                     android:layout_below="@+id/bt_new_more"
                     android:listSelector="@android:color/transparent"
-                    android:numColumns="4"></GridView>
+                    android:numColumns="4"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

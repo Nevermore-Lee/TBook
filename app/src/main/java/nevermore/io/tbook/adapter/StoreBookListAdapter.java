@@ -1,6 +1,5 @@
 package nevermore.io.tbook.adapter;
 
-import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import nevermore.io.tbook.R;
 import nevermore.io.tbook.entity.Book;
-import nevermore.io.tbook.fragment.StoreFragment;
 import nevermore.io.tbook.util.GlobalConsts;
 
 /**
@@ -33,20 +31,20 @@ public class StoreBookListAdapter extends BaseAdapter<Book> {
         Book book = getData().get(position);
         ViewHolder holder;
         if(convertView==null){
-            convertView = getLayoutInflater().inflate(R.layout.item_recommand_book,null);
+            convertView = getLayoutInflater().inflate(R.layout.item_store_book,null);
             holder = new ViewHolder();
-            holder.iv_recommand_book = (ImageView) convertView.findViewById(R.id.iv_recommand_book);
-            holder.tv_recommand_book = (TextView)convertView.findViewById(R.id.tv_recommand_book);
+            holder.imageView = (ImageView) convertView.findViewById(R.id.imageview);
+            holder.textView = (TextView)convertView.findViewById(R.id.textview);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv_recommand_book.setText(book.getProductName());
-        x.image().bind(holder.iv_recommand_book, GlobalConsts.BASEURL+"productImages/"+book.getProduct_pic());
+        holder.textView.setText(book.getProductName());
+        x.image().bind(holder.imageView, GlobalConsts.BASEURL+"productImages/"+book.getProduct_pic());
         return convertView;
     }
     class ViewHolder{
-        ImageView iv_recommand_book;
-        TextView tv_recommand_book;
+        ImageView imageView;
+        TextView textView;
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_cart_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shouye_bar_top"
+        >
+
+        <TextView
+            android:id="@+id/tv_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="购物车"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+
+            />
+
+        <Button
+            android:id="@+id/bt_cart_editor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_cart"
+            android:background="@null"
+            android:text="编辑"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_remind_message"
+        android:layout_below="@+id/rl_cart_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="购物车空的，快去选购吧"
+        android:textSize="30sp"/>
+    <ListView
+        android:id="@+id/lv_cart_book_item"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@+id/rl_cart_title">
+    </ListView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rl_jiesuan"
+        android:layout_below="@+id/lv_cart_book_item">
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/bt_submit"
+            android:text="合计：￥0.0"/>
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cart_btn_submit"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:text="结算"
+            android:textSize="20sp"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,5 +1,7 @@
 package nevermore.io.tbook.presenter.Impl;
 
+import android.util.Log;
+
 import java.util.List;
 
 import nevermore.io.tbook.entity.Book;
@@ -39,11 +41,34 @@ public class StorePresenter implements IStorePresenter{
 
     @Override
     public void loadHotBook() {
+        storeModel.getHotList(new IModel.AsyncCallback(){
 
+            @Override
+            public void onSucess(Object sucess) {
+                List<Book> books = (List<Book>) sucess;
+                storeView.updateHotList(books);
+            }
+
+            @Override
+            public void onError(Object error) {
+
+            }
+        });
     }
 
     @Override
     public void loadNewBook() {
+        storeModel.getNewList(new IModel.AsyncCallback(){
+            @Override
+            public void onSucess(Object sucess) {
+                List<Book> books = (List<Book>) sucess;
+                storeView.updateNewList(books);
+            }
 
+            @Override
+            public void onError(Object error) {
+                Log.i("lee","loadNewBook");
+            }
+        });
     }
 }

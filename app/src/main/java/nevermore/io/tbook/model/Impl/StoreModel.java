@@ -60,12 +60,58 @@ public class StoreModel implements IStoreModel{
     }
 
     @Override
-    public void getHotList(IModel.AsyncCallback callback) {
-
+    public void getHotList(final IModel.AsyncCallback callback) {
+        String url = GlobalConsts.URL_LOAD_HOT_BOOK_LIST;
+        StringRequest request = new StringRequest(StringRequest.Method.GET,url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    int code = object.getInt("code");
+                    if(code==GlobalConsts.RESPONSE_CODE_SUCCESS){
+                        JSONArray array = object.getJSONArray("data");
+                        List<Book> books = JSONParser.parseBookList(array);
+                        Log.i("lee",books.toString());
+                        callback.onSucess(books);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("lee","error"+error.getMessage());
+            }
+        });
+        queue.add(request);
     }
 
     @Override
-    public void getNewList(IModel.AsyncCallback callback) {
-
+    public void getNewList(final IModel.AsyncCallback callback) {
+        String url = GlobalConsts.URL_LOAD_NEW_BOOK_LIST;
+        StringRequest request = new StringRequest(StringRequest.Method.GET,url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    int code = object.getInt("code");
+                    if(code==GlobalConsts.RESPONSE_CODE_SUCCESS){
+                        JSONArray array = object.getJSONArray("data");
+                        List<Book> books = JSONParser.parseBookList(array);
+                        Log.i("lee",books.toString());
+                        callback.onSucess(books);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("lee","error"+error.getMessage());
+            }
+        });
+        queue.add(request);
     }
 }
