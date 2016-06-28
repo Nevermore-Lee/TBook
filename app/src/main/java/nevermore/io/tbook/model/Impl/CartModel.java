@@ -23,16 +23,16 @@ public class CartModel implements ICartModel {
 
     @Override
     public void deleteBook(int bookId) {
-
+        cart.deleteBook(bookId);
     }
 
     @Override
     public void modifyNum(int bookId, int num) {
-
+        cart.modifyNum(bookId,num);
     }
 
     @Override
     public double getTotalPrice() {
-        return 0;
+        return cart.getTotalPrice();
     }
 }

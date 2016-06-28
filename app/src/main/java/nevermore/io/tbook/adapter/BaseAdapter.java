@@ -7,6 +7,8 @@ import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 
+import nevermore.io.tbook.entity.CartItem;
+
 public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 	/**
 	 * �����Ķ���
@@ -103,15 +105,15 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int position) {
+	public T getItem(int position) {
 		// �����ӣ�
-		return null;
+		return  data.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
 		// �����ӣ�
-		return 0;
+		return position;
 	}
 
 }
