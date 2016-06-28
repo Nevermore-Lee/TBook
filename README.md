@@ -96,32 +96,44 @@ Model层：
 
 
 ----------------------------
-删除购物车中的购物项
-更改购物项中商品的数量
-更新购物车中商品总价格
+1. 删除购物车中的购物项
+
+2. 更改购物项中商品的数量
+
+3. 更新购物车中商品总价格
 
 
 
-在Cart对象中编写操作购物车的方法：
+## 在Cart对象中编写操作购物车的方法：
+
 buy()
+
 delete()
+
 modifyNum()
+
 getTotalPrice()
-....
 
 
 
-更新购物车中商品总价格
+## 更新购物车中商品总价格
+
 ICartView
+
   updateTotalPrice()
+  
 ICartPresenter 
-  loadTotalPrice()
+
+  loadTotalPrice( )
+
 ICartModel
+
   getTotalPrice()
+  
 
 
 
-删除购物车中的购物项
+## 删除购物车中的购物项
 1>删除按钮的的动画操作
   在adapter对象中添加show标志位 true/false
   判断show变量的状态，执行对应的动画。
@@ -133,7 +145,7 @@ ICartModel
 
 
 
-更改购物项中商品的数量
+## 更改购物项中商品的数量
 1>在getView方法中给每一个+/-都添加监听。
   在监听方法中执行更改商品数量的业务。
 2>获取点击修改按钮相应的item的position。
