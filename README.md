@@ -154,4 +154,8 @@ ICartModel
 3>presenter.modifyNum()方法修改Cart对象。
   在presenter中修改成功后需要重新加载并且
   更新总价格。
+  
+  ##显示注册界面的验证码
+  1. 使用Volley框架发送请求，获取验证码图片。
+  2. 用mvp架构完成需求。
 
