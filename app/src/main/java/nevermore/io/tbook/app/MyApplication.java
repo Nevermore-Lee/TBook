@@ -1,6 +1,7 @@
 package nevermore.io.tbook.app;
 
 import android.app.Application;
+import android.util.Log;
 
 import org.xutils.x;
 
@@ -19,7 +20,8 @@ public class MyApplication extends Application {
         x.Ext.init(this);
         context = this;
         cart = new Cart();
-
+        cart = cart.readCart();
+        Log.i("tuda",cart.toString());
     }
 
     public Cart getCart() {

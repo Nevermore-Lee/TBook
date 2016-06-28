@@ -2,9 +2,18 @@ package nevermore.io.tbook.entity;
 
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import nevermore.io.tbook.app.MyApplication;
+import nevermore.io.tbook.util.GlobalConsts;
 
 /**
  * Created by Lee on 2016/6/23.
@@ -69,4 +78,53 @@ public class Cart  implements Serializable{
         return price;
     }
 
+    /**
+     * 持久化存储到本地
+     */
+    public void saveCart(){
+        try {
+            File file = new File(MyApplication.getContext().getCacheDir(), GlobalConsts.CART_CACHE_FILE_NAME);
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+            oos.writeObject(this);
+            oos.flush();
+            Log.i("ssss","2");
+            oos.close();
+        } catch (IOException e) {
+            Log.i("ssss","1");
+            e.printStackTrace();
+        }
+    }
+    /**
+     * 从序列化的文件中读取购物车信息
+     */
+    public Cart readCart(){
+        try {
+            File file = new File(MyApplication.getContext().getCacheDir(), GlobalConsts.CART_CACHE_FILE_NAME);
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+            Cart cart = (Cart) ois.readObject();
+            if(cart==null){
+                Log.i("xxxx","123");
+                return  new Cart();
+            }
+            Log.i("xxxx","12");
+            return cart;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Log.i("xxxx","3");
+        return  new Cart();
+    }
+
+    /**
+     * toString
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "items=" + items +
+                '}';
+    }
 }

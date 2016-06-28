@@ -1,9 +1,11 @@
 package nevermore.io.tbook.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Lee on 2016/6/23.
  */
-public class CartItem {
+public class CartItem implements Serializable{
     private Book book;
     private int count;
 

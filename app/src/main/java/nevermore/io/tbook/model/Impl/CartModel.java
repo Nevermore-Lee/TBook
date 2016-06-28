@@ -18,17 +18,20 @@ public class CartModel implements ICartModel {
 
     @Override
     public boolean addBook(Book book) {
+        cart.saveCart();
         return cart.buy(book);
     }
 
     @Override
     public void deleteBook(int bookId) {
         cart.deleteBook(bookId);
+        cart.saveCart();
     }
 
     @Override
     public void modifyNum(int bookId, int num) {
         cart.modifyNum(bookId,num);
+        cart.saveCart();
     }
 
     @Override
