@@ -93,3 +93,65 @@ Model层：
 5>自定义Adapter：
   注意GridView的高度不能小于Item的高度。
   getView方法中加载图片，推荐使用Volley。
+
+
+----------------------------
+1. 删除购物车中的购物项
+
+2. 更改购物项中商品的数量
+
+3. 更新购物车中商品总价格
+
+
+
+## 在Cart对象中编写操作购物车的方法：
+
+buy()
+
+delete()
+
+modifyNum()
+
+getTotalPrice()
+
+
+
+## 更新购物车中商品总价格
+
+ICartView
+
+  updateTotalPrice()
+  
+ICartPresenter 
+
+  loadTotalPrice( )
+
+ICartModel
+
+  getTotalPrice()
+  
+
+
+
+## 删除购物车中的购物项
+1>删除按钮的的动画操作
+  在adapter对象中添加show标志位 true/false
+  判断show变量的状态，执行对应的动画。
+  获取每一个ivDel时，使用findViewWithTag()
+2>在getView方法中给删除按钮添加onClickListener。
+  需要让监听器获取点击的是哪一个item的删除按钮。
+  然后删除集合中的item，更新Adapter。
+  presenter.deleteBook();
+
+
+
+## 更改购物项中商品的数量
+1>在getView方法中给每一个+/-都添加监听。
+  在监听方法中执行更改商品数量的业务。
+2>获取点击修改按钮相应的item的position。
+  获取tvCount/tvNum, 更改两个TextView的内容。
+  需要使用findViewWithTag()
+3>presenter.modifyNum()方法修改Cart对象。
+  在presenter中修改成功后需要重新加载并且
+  更新总价格。
+
