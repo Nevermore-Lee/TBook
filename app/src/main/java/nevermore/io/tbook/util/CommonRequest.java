@@ -25,6 +25,10 @@ public class CommonRequest extends StringRequest{
 		super(method, url, listener, errorListener);
 	}
 
+	public CommonRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
+		super(url, listener, errorListener);
+	}
+
 	@Override
 	public Map<String, String> getHeaders() throws AuthFailureError {
 		Map<String, String> headers = super.getHeaders();

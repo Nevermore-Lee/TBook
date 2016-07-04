@@ -1,7 +1,7 @@
 package nevermore.io.tbook.model;
 
 /**
- * Created by Administrator on 2016/6/22.
+ * Created by Lee on 2016/6/22.
  */
 public interface IModel {
     public interface  AsyncCallback{

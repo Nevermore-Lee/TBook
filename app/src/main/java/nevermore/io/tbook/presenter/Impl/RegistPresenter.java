@@ -2,6 +2,7 @@ package nevermore.io.tbook.presenter.Impl;
 
 import android.graphics.Bitmap;
 
+import nevermore.io.tbook.entity.User;
 import nevermore.io.tbook.model.IModel;
 import nevermore.io.tbook.model.IUserModel;
 import nevermore.io.tbook.model.Impl.UserModel;
@@ -31,6 +32,21 @@ public class RegistPresenter implements IRegistPresenter {
             @Override
             public void onError(Object error) {
 
+            }
+        });
+    }
+
+    @Override
+    public void regist(User user, String code) {
+        model.regist(user, code, new IModel.AsyncCallback() {
+            @Override
+            public void onSucess(Object sucess) {
+                view.registSucess();
+            }
+
+            @Override
+            public void onError(Object error) {
+                view.registError((String)error);
             }
         });
     }

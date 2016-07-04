@@ -1,5 +1,6 @@
 package nevermore.io.tbook.presenter.Impl;
 
+import nevermore.io.tbook.model.IModel;
 import nevermore.io.tbook.model.IUserModel;
 import nevermore.io.tbook.model.Impl.UserModel;
 import nevermore.io.tbook.presenter.IMinePresenter;
@@ -19,6 +20,16 @@ public class MinePresenter implements IMinePresenter {
 
     @Override
     public void loginWithoutPwd(String token) {
+        model.loginWithoutPwd(token, new IModel.AsyncCallback() {
+            @Override
+            public void onSucess(Object sucess) {
+                view.updateUserInfo();
+            }
 
+            @Override
+            public void onError(Object error) {
+
+            }
+        });
     }
 }

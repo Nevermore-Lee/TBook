@@ -1,5 +1,7 @@
 package nevermore.io.tbook.util;
 
+import android.location.Address;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nevermore.io.tbook.entity.Book;
+import nevermore.io.tbook.entity.User;
 
 /**
  * Created by Administrator on 2016/6/22.
@@ -43,4 +46,38 @@ public class JSONParser {
         }
         return books;
     }
+    public static User parseUser(JSONObject obj) throws JSONException{
+        User user = new User();
+        user.setEmail(obj.getString("email"));
+        user.setEmailVerify(obj.getBoolean("emailVerify"));
+        user.setEmailVerifyCode(obj.getString("emailVerifyCode"));
+        user.setId(obj.getInt("id"));
+        user.setLastLoginIp(obj.getString("lastLoginIp"));
+        user.setLastLoginTime(obj.getLong("lastLoginTime"));
+        user.setNickname(obj.getString("nickname"));
+        user.setPassword(obj.getString("password"));
+        return user;
+    }
+
+    /**
+     * 解析Address地址
+     * @param ary
+     * @return
+     */
+//    public static List<Address> parseAddress(JSONArray ary) throws JSONException {
+//        List<Address> adds = new ArrayList<Address>();
+//        for(int i=0; i<ary.length(); i++){
+//            JSONObject obj=ary.getJSONObject(i);
+//            Address add=new Address();
+//            add.setId(obj.getInt("id"));
+//            add.setPhone(obj.getString("phone"));
+//            add.setPostalCode(obj.getString("postalCode"));
+//            add.setMobile(obj.getString("mobile"));
+//            add.setFull_address(obj.getString("full_address"));
+//            add.setIs_default(obj.getInt("is_default"));
+//            add.setReceiveName(obj.getString("receiveName"));
+//            adds.add(add);
+//        }
+//        return adds;
+//    }
 }
