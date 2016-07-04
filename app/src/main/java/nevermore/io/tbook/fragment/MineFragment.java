@@ -8,12 +8,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import nevermore.io.tbook.activity.AddressActivity;
 import nevermore.io.tbook.activity.LoginActivity;
 import nevermore.io.tbook.R;
 import nevermore.io.tbook.app.MyApplication;
@@ -32,6 +35,8 @@ public class MineFragment extends Fragment implements IMineView {
     private ImageView ivPhoto;
     @ViewInject(R.id.tvNickname)
     private TextView tvNickname;
+    @ViewInject(R.id.itemAddress)
+    private RelativeLayout itemAddress;
     private MinePresenter presenter;
 
     @Nullable
@@ -56,6 +61,7 @@ public class MineFragment extends Fragment implements IMineView {
     private void setListeners() {
         MineListener listener = new MineListener();
         ivPhoto.setOnClickListener(listener);
+        itemAddress.setOnClickListener(listener);
     }
 
     @Override
@@ -73,6 +79,10 @@ public class MineFragment extends Fragment implements IMineView {
                 case R.id.ivPhoto:
                     Intent intent = new Intent(getActivity(),LoginActivity.class);
                     startActivityForResult(intent,1);
+                    break;
+                case  R.id.itemAddress:
+                    Intent intent1 = new Intent(getActivity(), AddressActivity.class);
+                    startActivity(intent1);
                     break;
             }
         }

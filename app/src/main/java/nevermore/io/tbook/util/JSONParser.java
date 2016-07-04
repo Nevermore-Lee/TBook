@@ -1,6 +1,5 @@
 package nevermore.io.tbook.util;
 
-import android.location.Address;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -9,6 +8,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import nevermore.io.tbook.entity.Address;
 import nevermore.io.tbook.entity.Book;
 import nevermore.io.tbook.entity.User;
 
@@ -59,25 +59,26 @@ public class JSONParser {
         return user;
     }
 
+
     /**
      * 解析Address地址
      * @param ary
      * @return
      */
-//    public static List<Address> parseAddress(JSONArray ary) throws JSONException {
-//        List<Address> adds = new ArrayList<Address>();
-//        for(int i=0; i<ary.length(); i++){
-//            JSONObject obj=ary.getJSONObject(i);
-//            Address add=new Address();
-//            add.setId(obj.getInt("id"));
-//            add.setPhone(obj.getString("phone"));
-//            add.setPostalCode(obj.getString("postalCode"));
-//            add.setMobile(obj.getString("mobile"));
-//            add.setFull_address(obj.getString("full_address"));
-//            add.setIs_default(obj.getInt("is_default"));
-//            add.setReceiveName(obj.getString("receiveName"));
-//            adds.add(add);
-//        }
-//        return adds;
-//    }
+    public static List<Address> parseAddress(JSONArray ary) throws JSONException {
+        List<Address> adds = new ArrayList<Address>();
+        for(int i=0; i<ary.length(); i++){
+            JSONObject obj=ary.getJSONObject(i);
+            Address add=new Address();
+            add.setId(obj.getInt("id"));
+            add.setPhone(obj.getString("phone"));
+            add.setPostalCode(obj.getString("postalCode"));
+            add.setMobile(obj.getString("mobile"));
+            add.setFull_address(obj.getString("full_address"));
+            add.setIs_default(obj.getInt("is_default"));
+            add.setReceiveName(obj.getString("receiveName"));
+            adds.add(add);
+        }
+        return adds;
+    }
 }
